@@ -38,3 +38,26 @@ document.addEventListener("DOMContentLoaded", () => {
   // Call the function to generate stars
   generateStars();
 });
+
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  const mainContent = document.getElementById('main-content');
+  const audio = document.getElementById('bgm');
+
+  // Hide the loader after the page is fully loaded
+  loader.classList.add('hidden');
+
+  // Play the background music
+  audio.play();
+
+  // Show the main content and "Click to Open" button after a short delay
+  setTimeout(() => {
+    mainContent.classList.remove('hidden');
+    mainContent.style.display = 'flex'; // Change display to 'flex' to center the content
+  }, 1000); // 1 second for the loader fade-out
+});
+
+// Handle the "Click to Open" button click
+document.getElementById('open-button').addEventListener('click', () => {
+  // You can replace this alert with the action you want to trigger after clicking
+});
