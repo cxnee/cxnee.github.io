@@ -42,9 +42,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vh;
-  height: 100vh;
-
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
   backdrop-filter: blur(10px); /* Blur the background */
   z-index: -1; /* Put the blur behind the content */
@@ -69,7 +68,7 @@ hr.divider {
 }
 
 .text:hover {
-  font-size: 135%;
+  transform: scale(1.10);
   color: #d8d8d8;
 }
 

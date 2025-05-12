@@ -22,9 +22,26 @@
         <p>minecraft: cxxne</p>
         <button class="btn" onclick="window.location.href='https://www.youtube.com/@cxxn.e'">youtube</button>
         <hr class="divider" />
-      <button class="btn" onclick="window.location.href='main'">go back</button>
+      <button class="btn" onclick="window.location.href='index'">go back</button>
     </div>
   </div>
+
+    <audio id="bg-music" autoplay loop>
+  <source src="assets/music.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('bg-music');
+
+    // Wait for the audio to be allowed to play (browsers may block it)
+    audio.volume = 0.03; // Set volume to 20%
+    audio.play().catch((err) => {
+      console.log('Autoplay may be blocked:', err.message);
+    });
+  });
+</script>
 
   <script src="script.js"></script>
 </body>
