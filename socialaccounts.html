@@ -10,8 +10,8 @@
   <div id="loader">loading...</div>
 
   <div id="main-content">
-    <h1>my social accounts</h1>
-    <p>i'm lonely plspls friend</p>
+    <h1 class="text">my social accounts</h1>
+    <p class="text">i'm lonely plspls friend</p>
 
     <!-- Divider -->
     <hr class="divider" />
@@ -25,23 +25,6 @@
       <button class="btn" onclick="window.location.href='https://cxnee.github.io'">go back</button>
     </div>
   </div>
-
-    <audio id="bg-music" autoplay loop>
-  <source src="assets/music.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('bg-music');
-
-    // Wait for the audio to be allowed to play (browsers may block it)
-    audio.volume = 0.03; // Set volume to 20%
-    audio.play().catch((err) => {
-      console.log('Autoplay may be blocked:', err.message);
-    });
-  });
-</script>
 
   <script src="script.js"></script>
 </body>
