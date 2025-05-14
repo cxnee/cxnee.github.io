@@ -7,23 +7,23 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="loader">loading...</div>
+  <div id="loader"></div>
 
   <div id="main-content">
-    <h1 class="text">who am i?</h1>
-    <p class="text">uhh..</p>
+    <h1 class="text" onmouseover="playSound()">who am i?</h1>
+    <p class="text" onmouseover="playSound()">uhh..</p>
 
     <hr class="divider" />
     
-    <h3 class="text">hi, you can call me cone!!!</h3>
-    <h3 class="text">i like coding, playing, and idk</h3> 
-    <h4 class="text"> im 13 </h4>
+    <h3 class="text" onmouseover="playSound()">hi, you can call me cone!!!</h3>
+    <h3 class="text" onmouseover="playSound()">i like coding, playing, and idk</h3> 
+    <h4 class="text" onmouseover="playSound()"> im 13 </h4>
 
     <hr class="divider" />
 
-  
+    <audio id="sfx" src="assets/hover.mp3" preload="auto"></audio> 
     <div class="buttons-container">
-      <button class="btn" onclick="window.location.href='https://cxnee.github.io'">go back</button>
+      <button class="btn" onmouseover="playSound()" onclick="window.location.href='index'">go back</button>
     </div>
   </div>
 

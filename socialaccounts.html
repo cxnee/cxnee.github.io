@@ -7,25 +7,34 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="loader">loading...</div>
+  <div id="loader"></div>
 
   <div id="main-content">
-    <h1 class="text">my social accounts</h1>
-    <p class="text">i'm lonely plspls friend</p>
+    <h1 class="text" onmouseover="playSound()">my social accounts</h1>
+    <p class="text" onmouseover="playSound()"> i'm lonely plspls friend</p>
 
     <!-- Divider -->
-    <hr class="divider" />
+    <hr class="divider"/>
+    <audio id="sfx" src="assets/hover.mp3" preload="auto"></audio> 
     <!-- Buttons -->
-    <div class="buttons-container">
-        <button class="btn" onclick="window.location.href='https://www.roblox.com/users/1989080290/profile'">roblox</button>
-        <p>discord: _c.ne </p>
-        <p>minecraft: cxxne</p>
-        <button class="btn" onclick="window.location.href='https://www.youtube.com/@cxxn.e'">youtube</button>
-        <hr class="divider" />
-      <button class="btn" onclick="window.location.href='https://cxnee.github.io'">go back</button>
-    </div>
-  </div>
 
+
+        <a target="_blank" href="https://discord.com/users/1284134213389385759" style="text-decoration:none"> 
+          <img onmouseover="playSound()" class="text" src="assets/discord.png" alt="Image Button" width="70" height="70" class="discord">
+        </a>
+
+
+        <a target="_blank" href="https://roblox.com/users/1989080290/profile" style="text-decoration:none;"> 
+          <img onmouseover="playSound()" class="text" src="assets/roblox.svg" alt="Image Button" width="45" height="45" style="padding:11px;" class="roblox">
+        </a>
+
+        <a target="_blank" href="https://www.youtube.com/@cxxn.e" style="text-decoration:none;"> 
+          <img onmouseover="playSound()" class="text" src="assets/youtube.png" alt="Image Button" width="45" height="45" style="padding:11px;" class="youtube">
+        </a>
+
+
+           <hr class="divider"/>
+        <button class="btn" onmouseover="playSound()" onclick="window.location.href='index'">go back</button>
   <script src="script.js"></script>
 </body>
 </html>

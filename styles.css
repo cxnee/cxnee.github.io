@@ -1,10 +1,11 @@
 body {
   margin: 0;
-  background-color: rgb(20, 20, 20);
+  background-image: url('assets/picture.jpg');
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: white;
-  overflow: hidden; /* Prevent scrolling due to stars */
   position: relative;
+  background-size: cover;
+  cursor: url(assets/mouse_cursor.png);
 }
 
 /* Loader Styles */
@@ -15,47 +16,41 @@ body {
   justify-content: center;
   height: 100vh;
   font-size: 2rem;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.3s ease;
 }
 
 #loader.hidden {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 1s ease-out;
+  transition: opacity 0.3s ease-out;
 }
 
 /* Main Content Styles */
 #main-content {
   display: none;
   padding: 2rem;
-  animation: fadeIn 1s ease-in forwards;
+  animation: fadeIn 0.3s ease-in forwards;
   text-align: center;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10; /* Ensure content is above the stars */
-}
-
-/* Blurred Background */
-#blur-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
-  backdrop-filter: blur(10px); /* Blur the background */
-  z-index: -1; /* Put the blur behind the content */
+  z-index: 10;
 }
 
 /* Divider Line */
 hr.divider {
   border: 0;
   height: 1px;
-  background: gray;
-  width: 125%; /* Increase width to make the line longer */
-  margin: 20% -10%; /* Space around the line */
+  background: rgb(107, 107, 107);
+  width: 125%;
+  margin: 20% -10%;
+  transition: 0.3s;
+}
+
+hr:hover {
+  text-shadow: 0 0 10px #ffffff5d, 0 0 20px #ffffff5d, 0 0 30px #ffffff5d;
+  transform: scale(1.10)
 }
 
 /* Button Container */
@@ -64,43 +59,102 @@ hr.divider {
 }
 
 .text {
-  transition: 0.3s ease;
+  transition: 0.25s ease;
+  transform-origin: center; 
 }
 
 .text:hover {
+  text-shadow: 0 0 10px #ffffff5d, 0 0 20px #ffffff5d, 0 0 30px #ffffff5d;
   transform: scale(1.10);
   color: #d8d8d8;
 }
 
 /* Button Styles */
 .btn {
-  background-color: #333;
-  color: white;
+  background-color: rgb(26, 26, 26);
+  color: rgb(255, 255, 255);
   border: none;
-  padding: 5px 10px; /* Smaller padding for smaller buttons */
+  padding: 5px 10px;
   margin: 5px;
   cursor: pointer;
-  font-size: 1.2rem; /* Smaller font size for buttons */
-  transition: 0.3s ease;
+  font-size: 1.4rem;
   border-radius: 10px;
+  position: relative;
+  z-index: 0;
+  transition: 0.3s ease-in-out;
 }
 
-.btn:hover {
-  font-size: 1.4rem; /* Smaller font size for buttons */
-  background-color: #1f1f1f;
+.btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.btn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #FF0000, #FF7300, #FFFB00, #48FF00,
+    #00FFD5, #002BFF, #FF00C8, #FF0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  border-radius: 10px;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.btn:hover::before {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+}
+
+.btn:active:after {
+  transform: scale(0.9);
 }
 
 .btn:active {
-  transform: scale(0.85);
+  color: #ffffff;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Glow animation */
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 /* Starry background */
-.star {
-  position: absolute;
-  border-radius: 50%;
-  background-color: white;
-  animation: appearDisappear 3s infinite alternate;
-}
 
 @keyframes appearDisappear {
   0% {
@@ -117,37 +171,48 @@ hr.divider {
   }
 }
 
-/* Fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+
+
+#intro-frame {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 10, 10, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: opacity 0.8s ease;
 }
 
-/* "Click to Open" Button */
-#open-button {
-  padding: 20px 40px;
-  background-color: #333;
+.intro-text {
+  font-size: 2rem;
   color: white;
-  border: none;
+  text-shadow: 0 0 10px #fff;
   cursor: pointer;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-  margin-top: 30px;
 }
 
-#open-button:hover {
-  background-color: #555;
+
+#intro-frame.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
-#open-button:active {
-  transform: scale(0.95);
+/* Glow effect for images */
+.discord, .roblox, .youtube {
+  transition: box-shadow 0.3s ease-in-out;
 }
 
-.hidden {
-  display: none;
+.discord:hover {
+  box-shadow: 0 0 20px rgba(0, 123, 255, 1); /* Blue glow for Discord */
+}
+
+.roblox:hover {
+  box-shadow: 0 0 20px rgba(0, 123, 255, 1); /* Blue glow for Roblox */
+}
+
+.youtube:hover {
+  box-shadow: 0 0 20px rgba(255, 0, 0, 1); /* Red glow for YouTube */
 }

@@ -7,12 +7,20 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="loader">loading...</div>
-
+  <!-- Loader -->
+  <div id="loader"></div>
+  <div id="intro-frame">
+  <div class="text" style="font-size: 2rem;" style="cursor: pointer">click to open...</div>
+</div>
+<audio id="bg-music" src="assets/music.mp3"></audio>
+  <!-- Main content -->
   <div id="main-content">
-    <h1 class="text">cxxne's goofy website</h1>
-    <p class="text">i add some random stuff here</p>
-    <audio id="button-sound" src="assets/Button_Hover.wav" preload="auto"></audio> 
+    <h1 class="text" onmouseover="playSound()">cxxne's goofy website</h1>
+    <p class="text" onmouseover="playSound()">i add some random stuff here</p>
+
+    <audio id="sfx" src="assets/hover.mp3" preload="auto"></audio> 
+
+
     <!-- Divider -->
     <hr class="divider" />
     
@@ -22,25 +30,8 @@
       <button class="btn" onmouseover="playSound()" onclick="window.location.href='socialaccounts'">social accounts</button>
     </div>
   </div>
-  
 
-  <audio id="bg-music" autoplay loop>
-  <source src="assets/music.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('bg-music');
-
-    // Wait for the audio to be allowed to play (browsers may block it)
-    audio.volume = 0.03; // Set volume to 20%
-    audio.play().catch((err) => {
-      console.log('Autoplay may be blocked:', err.message);
-    });
-  });
-</script>
-
+  <!-- Link to external JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
